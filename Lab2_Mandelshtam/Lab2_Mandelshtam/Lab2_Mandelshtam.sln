@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hashtable", "Lab2_Mandelshtam\Hashtable.csproj", "{A7BA935E-E271-4919-AF8A-85E6C4A715EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImmutableType", "ImmutableType\ImmutableType.csproj", "{AAE9B698-F6FF-4665-943F-E543D2B11AC0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A7BA935E-E271-4919-AF8A-85E6C4A715EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7BA935E-E271-4919-AF8A-85E6C4A715EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7BA935E-E271-4919-AF8A-85E6C4A715EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7BA935E-E271-4919-AF8A-85E6C4A715EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAE9B698-F6FF-4665-943F-E543D2B11AC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAE9B698-F6FF-4665-943F-E543D2B11AC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAE9B698-F6FF-4665-943F-E543D2B11AC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAE9B698-F6FF-4665-943F-E543D2B11AC0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8E85E2A3-3EDE-4575-ADD7-D067CD6B8C58}
+	EndGlobalSection
+EndGlobal
