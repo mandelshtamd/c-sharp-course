@@ -28,5 +28,14 @@ namespace ImmutableType
                               "/_/_____/____/_______|");
         }
 
+        public static ImmutableDog RenameDog(ImmutableDog _, string name)
+        {
+            return new ImmutableDog(name);
+        }
+
+        public ImmutableDog RenameDog(string name)
+        {
+            return ImmutableDog.RenameDog(this, name);
+        }
     }
 }
