@@ -28,7 +28,8 @@ namespace Hashtable
         {
             if (_size < _capacity)
             {
-                int hash = Math.Abs(key.GetHashCode() % _capacity);
+                // обычно для того, чтобы оставаться в положительных числах, применяют маску 0x7ffffffff
+                int hash = (key.GetHashCode() & 0x7fffffff) % _capacity;
                 while (_items[hash] != null)
                 {
                     hash++;
