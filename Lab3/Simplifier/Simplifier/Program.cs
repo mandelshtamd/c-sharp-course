@@ -6,6 +6,8 @@ namespace Simplifier
     {
         public static string Simplify(string arg)
         {
+// лучше при преобразовании строк в числа быть всегда осторожным.
+// arg может не содержать символ /, или int.Parse на вход получит вообще не число. Есть метод TryParse
             var numerator = int.Parse(arg.Substring(0, arg.IndexOf('/')));
             var denominator = int.Parse(arg.Substring(arg.IndexOf('/') + 1, arg.Length - arg.IndexOf('/') - 1));
             var gcd = Gcd(numerator, denominator);
