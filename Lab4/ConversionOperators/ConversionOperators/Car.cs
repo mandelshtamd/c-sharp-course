@@ -25,10 +25,27 @@ namespace ConversionOperators
             private set;
         }
 
-        public Car(int maxSpeed, Color color)
+        public int Years
+        {
+            get;
+            private set;
+        }
+
+        public Car(int maxSpeed, Color color, int years)
         {
             MaxSpeed = maxSpeed;
             Color = color;
+            Years = years;
+        }
+
+        public void Beep()
+        {
+            Console.WriteLine("beep beep");
+        }
+
+        public string GetCharacteristic()
+        {
+            return $"max speed = {MaxSpeed}, color = {Color}, years of exploitation = {Years}";
         }
     }
 }

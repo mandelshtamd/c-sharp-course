@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ConversionOperators
 {
-    class Horse
+    internal class Horse
     {
         public int Years
         {
@@ -18,52 +18,48 @@ namespace ConversionOperators
             private set;
         }
 
-        public bool IsShod
+        public int MaxSpeed
         {
             get;
             private set;
         }
-        public int MaxSpeed;
 
-        Horse(int years, bool isShod, Color color)
+        public string Name;
+
+        public Horse(int years, Color color, int maxSpeed, string name)
         {
             Years = years;
-            IsShod = isShod;
-            Color = color;
-        }
-
-        Horse(int years, bool isShod, Color color, int maxSpeed)
-        {
-            Years = years;
-            IsShod = isShod;
             Color = color;
             MaxSpeed = maxSpeed;
+            Name = name;
         }
 
         public static bool operator <(Horse lhs, Horse rhs)
         {
-            return true;
+            return lhs.MaxSpeed < rhs.MaxSpeed;
         }
 
         public static bool operator >(Horse lhs, Horse rhs)
         {
-            return rhs < lhs;
+            return rhs < lhs && rhs != lhs;
         }
 
 
         public static bool operator ==(Horse lhs, Horse rhs)
         {
-            return lhs.IsShod == rhs.IsShod && lhs.Years == rhs.Years;
+            return lhs.MaxSpeed == rhs.MaxSpeed;
         }
 
         public static bool operator !=(Horse lhs, Horse rhs)
         {
-            return lhs == rhs;
+            return !(lhs == rhs);
         }
 
-        public static explicit operator Car(Horse horse)
+        public static implicit operator Car(Horse horse)
         {
-            return new Car(horse.MaxSpeed, horse.Color);
+            Console.WriteLine("conversion from Horse to Car");
+            return new Car(horse.MaxSpeed, horse.Color, horse.Years);
         }
+
     }
 }
