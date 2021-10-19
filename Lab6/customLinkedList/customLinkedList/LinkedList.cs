@@ -5,7 +5,9 @@ using System.Text;
 
 namespace customLinkedList
 {
-    public class LinkedList<T> : IEnumerable
+// необобщенный интерфейс IEnumerable нужен скорее для обратной совместимости версий C#. 
+// в новом коде лучше вообще от него отказаться и использовать обобщенную версию IEnumerable<T> как указано в задании
+    public class LinkedList<T> : IEnumerable<Node<T>>
     {
         public int Count
         {
@@ -69,18 +71,19 @@ namespace customLinkedList
             return false;
         }
 
-        public IEnumerator GetEnumerator()
+        public IEnumerator<Node<T>> GetEnumerator()
         {
             return new LinkedListEnum<T>(this);
         }
 
+        //  скрываем явную реализацию метода необобщенного интерфейса
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
         }
     }
 
-    public class LinkedListEnum<T> : IEnumerator
+    public class LinkedListEnum<T> : IEnumerator<Node<T>>
     {
         public LinkedList<T> List;
         private Node<T> currentNode;
@@ -111,8 +114,6 @@ namespace customLinkedList
             currentNode = List.StartNode;
         }
 
-        object IEnumerator.Current => Current;
-
         public Node<T> Current
         {
             get
@@ -126,6 +127,13 @@ namespace customLinkedList
                     throw new InvalidOperationException();
                 }
             }
+        }
+
+        object IEnumerator.Current => throw new NotImplementedException();
+
+        public void Dispose()
+        {
+            Console.WriteLine("Enumerator is disposed");
         }
     }
 
