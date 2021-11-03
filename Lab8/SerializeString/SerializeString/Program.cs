@@ -19,7 +19,6 @@ namespace SerializeString
 
         static void Main()
         {
-
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
             // Russian
             CheckSerialization("пример", Encoding.UTF8);
