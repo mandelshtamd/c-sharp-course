@@ -23,6 +23,7 @@ namespace FibonacciWord
 
             return string.Join(", ", fibSeq);
         }
+
         static void Main(string[] args)
         {
             Console.WriteLine($"stringyFib(1) -> {stringyFib(1)}");
