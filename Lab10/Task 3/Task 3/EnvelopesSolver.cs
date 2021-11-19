@@ -6,6 +6,7 @@ namespace Task_3
 {
     class EnvelopesSolver
     {
+	// публичный метод должен начинаться с большой буквы
         public static int solve(Envelope[] envelopes)
         {
             Array.Sort(envelopes, new EnvelopeComparer());
