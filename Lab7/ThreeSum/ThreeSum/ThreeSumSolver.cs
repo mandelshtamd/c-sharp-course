@@ -43,8 +43,8 @@ namespace ThreeSum
                         result.Add(new int[] { nums[i], nums[j], numsk });
                 }
             }
-            return result;
 
+            return result;
         }
     }
 }
