@@ -15,6 +15,7 @@ namespace Task3
             }
             catch
             {
+                // ошибки лучше всегда выводить куда-то, не проглатывать
                 return new Tuple<string, bool>("", false);
             }
             if (files != null && files.Length > 0)
