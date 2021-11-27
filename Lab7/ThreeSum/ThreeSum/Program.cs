@@ -6,7 +6,7 @@ namespace ThreeSum
     {
         static void Main(string[] args)
         {
-            var example1 = new int[] { 0, 1, -1, -1, 2 };
+            var example1 = new int[] { 1, 5, 2, -5}; //{ 0, 1, -1, -1, 2 };
             Console.Write("For input { 0, 1, -1, -1, 2 } we get answers: ");
             var ans = ThreeSumSolver.ThreeSum(example1);
 
