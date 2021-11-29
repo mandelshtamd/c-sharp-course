@@ -38,7 +38,7 @@ namespace CarFactory
             Console.WriteLine("");
         }
     }
-
+    // перечислители принято помещать в начале файла
     enum CarTypes
     {
         PassengerCar,

@@ -53,7 +53,7 @@ namespace Allergies
             return ans;
         }
 
-        
+        // публичные методы лучше называть с заглавной буквы
         public int getScoreByAllergies(List<string> allergies)
         {
             int score = 0;
