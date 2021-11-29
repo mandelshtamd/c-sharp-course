@@ -5,6 +5,7 @@ using System.Text;
 
 namespace IDisposableCache
 {
+    // IDisposableList - это класс, с буквы I называются только интерфейсы
     class IDisposableList : IDisposable
     {
         List<int> list = null;
@@ -16,6 +17,7 @@ namespace IDisposableCache
 
         public void Dispose() {
             list.Clear();
+            // нет смысла в вызове GC.SuppressFinalize, т.к. в классе отсутствует финализатор (~IDisposableList())
             GC.SuppressFinalize(this);
         }
     }

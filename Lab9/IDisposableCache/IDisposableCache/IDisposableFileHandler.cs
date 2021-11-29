@@ -5,6 +5,7 @@ using System.Text;
 
 namespace IDisposableCache
 {
+    // почему этот класс не наследует интерфейс IDisposable? и название классов не должно начинаться с I
     class IDisposableFileHandler
     {
         FileStream _handledFile;
@@ -16,6 +17,7 @@ namespace IDisposableCache
 
         public void Dispose()
         {
+            // в этом классе должен быть финализатор. инае вызов метода GC.SuppressFinalize не имеет смысла
             _handledFile.Close();
             GC.SuppressFinalize(this);
         }

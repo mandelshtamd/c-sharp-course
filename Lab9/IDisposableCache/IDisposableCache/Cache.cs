@@ -40,6 +40,11 @@ namespace IDisposableCache
                 return true;
             }
 
+            // возможно, тут лучше булет инвертировать if:
+            // if (!Clear())
+            //     return false;
+            // var cacheElem = new ...
+            // return true;
             var successfullyCleared = Clear();
             if (successfullyCleared)
             {
