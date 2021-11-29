@@ -5,9 +5,8 @@ namespace SynchronizedOutput
 {
     class Program
     {
-        private static Mutex mutex = new Mutex();
-        // using this to garantee that first thread runs before second
-        private static volatile bool rightOrderVariable = false;
+        private static readonly Semaphore firstSemaphore = new Semaphore(1, 1);
+        private static readonly Semaphore secondSemaphore = new Semaphore(0, 1);
 
         static void Main(string[] args)
         {
@@ -22,29 +21,26 @@ namespace SynchronizedOutput
         {
             for (int i = 0; i < 10; i++)
             {
-                mutex.WaitOne();
-
-                if (i == 0)
-                {
-                    rightOrderVariable = true;
-                }
+                firstSemaphore.WaitOne();
 
                 Console.WriteLine($"{i}-th output in T1");
                 Console.WriteLine();
-                mutex.ReleaseMutex();
+
+                secondSemaphore.Release();
             }
         }
 
         static void SecondPrinter()
         {
-            while(!rightOrderVariable) { }
 
             for (int i = 0; i < 10; i++)
             {
-                mutex.WaitOne();
+                secondSemaphore.WaitOne();
+
                 Console.WriteLine($"{i}-th output in T2");
                 Console.WriteLine();
-                mutex.ReleaseMutex();
+
+                firstSemaphore.Release();
             }
         }
     }
