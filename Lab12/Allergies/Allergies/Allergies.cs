@@ -8,7 +8,6 @@ namespace Allergies
 {
     class Allergies
     {
-
         private string _personName;
         public string Name
         {
@@ -129,16 +128,17 @@ namespace Allergies
             DeleteAllergy(allergenString);
         }
     }
-
+    // размещайте объявление энумов в начале файла
+    // элементам энумов можно задавать численные значения и использовать их при вычислениях
     enum Allergen
     {
-        Eggs,
-        Peanuts,
+        Eggs, // =1 
+        Peanuts, //=2
         Molluscs,
         Strawberries,
         Tomatoes,
         Chocolate,
-        Dust,
-        Cats
+        Dust, // =64
+        Cats // =128
     }
 }
