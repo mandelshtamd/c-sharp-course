@@ -40,6 +40,7 @@ namespace PalindromeSequence
             return new Tuple<long, long>(seed, steps);
         }
     }
+
     class Program
     {
         static void Main(string[] args)

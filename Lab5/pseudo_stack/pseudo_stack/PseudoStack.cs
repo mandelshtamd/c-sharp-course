@@ -6,12 +6,16 @@ namespace pseudo_stack
 {
     public class PseudoStack<T>
     {
+	// старайте размещать в классе сначала все закрытые поля, а потом открытые свойства.
+	// открытые поля лучше вообще избегать
+
         private readonly List<Stack<T>> _listOfStacks = new List<Stack<T>>();
+        private readonly int _maxStackSize = 3;
+
+        private int CurrIndex => _listOfStacks.Count - 1;
 
         public int Count => _maxStackSize * (_listOfStacks.Count - 1) + _listOfStacks[CurrIndex].Count;
 
-        private readonly int _maxStackSize = 3;
-        private int CurrIndex => _listOfStacks.Count - 1;
         public PseudoStack(params T[] elems)
         {
             foreach (var e in elems)

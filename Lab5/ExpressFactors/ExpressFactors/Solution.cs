@@ -26,6 +26,8 @@ namespace ExpressFactors
             }
 
             var ans = new StringBuilder();
+            // тут очень неоптимально в плане производительности выбрано решение
+            // у словаря можно обратиться напрямую ко всей коллекции ключей, у нее есть перечислитель и ее можно отсортировать как хочется
             for (var i = 2; i <= input; i++)
             {
                 factorization.TryGetValue(i, out var currentCount);

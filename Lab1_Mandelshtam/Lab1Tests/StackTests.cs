@@ -44,5 +44,18 @@ namespace Lab1Tests
             testStack.Pop();
             Assert.AreEqual(testStack.MinValue(), -1);
         }
+
+        [TestMethod]
+        public void RepeatedValuesTest2()
+        {
+            var testStack = new Stack.Stack<int>();
+            testStack.Push(2); // MinVal = 2
+            testStack.Push(1); // MinVal = 1
+            testStack.Push(3); // MinVal = 1
+            testStack.Pop();
+
+            Assert.AreEqual(testStack.Pop(), 1);
+            Assert.AreEqual(testStack.MinValue(), 1);
+        }
     }
 }

@@ -11,6 +11,7 @@ namespace ConversionOperators
         White,
         Black
     }
+
     public class Car
     {
         public int MaxSpeed
@@ -43,7 +44,8 @@ namespace ConversionOperators
             Console.WriteLine("beep beep");
         }
 
-        public string GetCharacteristic()
+        // здесь подошло бы переопределение метода ToString
+ 	public string GetCharacteristic()
         {
             return $"max speed = {MaxSpeed}, color = {Color}, years of exploitation = {Years}";
         }
