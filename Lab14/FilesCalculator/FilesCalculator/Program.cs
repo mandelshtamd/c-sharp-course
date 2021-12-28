@@ -25,7 +25,7 @@ namespace FilesCalculator
             var threadLists = new List<List<string>>(threadsNum);
             for (int i = 0; i < threadsNum; i++)
             {
-                threadLists[i] = new List<string>();
+                threadLists.Add(new List<string>());
             }
 
             for (int i = 0; i < files.Length; i++)
@@ -35,7 +35,8 @@ namespace FilesCalculator
 
             for (int i = 0; i < threadsNum; i++)
             {
-                threadsArray[i] = new Thread(() => FilesCalculator.HandleFiles(threadLists[i]));
+                var temp = i;
+                threadsArray[i] = new Thread(() => FilesCalculator.HandleFiles(threadLists[temp]));
                 threadsArray[i].Start();
             }
 

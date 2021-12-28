@@ -34,16 +34,11 @@ namespace FilesCalculator
 
         private static Tuple<int, List<double>> ParseFile(string filePath)
         {
-            using (FileStream fstream = new FileStream(filePath, FileMode.Open))
-            {
-                byte[] array = new byte[fstream.Length];
-                fstream.Read(array, 0, array.Length);
-                string textFromFile = System.Text.Encoding.Default.GetString(array);
-                var parsedText = textFromFile.Split("\n");
-                var operationNum = int.Parse(parsedText[0]);
-                var dataList = new List<string>(parsedText[1].Split(" ")).ConvertAll(s => double.Parse(s));
-                return new Tuple<int, List<double>>(operationNum, dataList);
-            }
+            var fileContent = File.ReadLines(filePath);
+
+            var operationNum = int.Parse(fileContent.First());
+            var dataList = new List<string>(fileContent.Last().Split(" ")).ConvertAll(s => double.Parse(s));
+            return new Tuple<int, List<double>>(operationNum, dataList);
         }
 
         private static double Calculate(int operationNum, List<double> nums)
@@ -58,7 +53,12 @@ namespace FilesCalculator
             } 
             else
             {
-                return nums.Aggregate((sum, i) => sum + i * i);
+                double result = 0;
+                foreach(var num in nums)
+                {
+                    result += num * num;
+                }
+                return result;
             }
         }
     }
