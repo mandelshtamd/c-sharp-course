@@ -52,12 +52,10 @@ namespace SleepingHairdresser
                         customers.Enqueue(1);
                     }
                 }
-
                 else
                 {
                     Console.WriteLine("Too many people, I'll come back later");
                 }
-
             }
         }
     }

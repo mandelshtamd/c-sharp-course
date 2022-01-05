@@ -17,6 +17,7 @@ namespace FooBar
         {
             this.n = n;
         }
+
         public void Foo(Action printFoo)
         {
 
@@ -31,6 +32,7 @@ namespace FooBar
                 bar.Release();
             }
         }
+
         public void Bar(Action printBar)
         {
 

@@ -14,7 +14,6 @@ namespace ZeroEvenOdd
             var evenTask = Task.Factory.StartNew(() => zeroEvenOddObj.Even((i) => Console.Write($"{i}")));
             var oddTask = Task.Factory.StartNew(() => zeroEvenOddObj.Odd((i) => Console.Write($"{i}")));
 
-
             zeroTask.Wait();
             evenTask.Wait();
             oddTask.Wait();

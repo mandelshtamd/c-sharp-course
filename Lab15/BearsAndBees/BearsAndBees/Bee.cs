@@ -16,7 +16,6 @@ namespace BearsAndBees
             this.pot = pot;
         }
 
-
         public void run()
         {
             while (true)

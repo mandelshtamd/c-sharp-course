@@ -10,10 +10,12 @@ namespace BearsAndBees
     public class Bear
     {
         HoneyPot pot;
+
         public Bear(HoneyPot pot)
         {
             this.pot = pot;
         }
+
         public void run()
         {
             while (true)

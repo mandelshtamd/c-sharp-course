@@ -10,6 +10,7 @@ namespace ZeroEvenOdd
     {
         private int n;
 
+        // можно сразу инициализировать и определить как private readonly
         System.Threading.Semaphore zeroSem;
         System.Threading.Semaphore evenSem;
         System.Threading.Semaphore oddSem;
@@ -25,7 +26,6 @@ namespace ZeroEvenOdd
 
         public void Zero(Action<int> printNumber)
         {
-
             for (int i = 1; i <= this.n; i++)
             {
                 zeroSem.WaitOne();
@@ -35,7 +35,6 @@ namespace ZeroEvenOdd
                     evenSem.Release();
                 else
                     oddSem.Release();
-
             }
         }
 
@@ -59,5 +58,4 @@ namespace ZeroEvenOdd
             }
         }
     }
-
 }
